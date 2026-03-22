@@ -910,22 +910,6 @@ function ents_methods:getUnFreezable()
 	return Ent_GetUnFreezable(getent(self))
 end
 
---- Blocks this entity from being picked up by the physgun
--- @param boolean physgunDisabled
-function ents_methods:disablePhysgun(disabled)
-	checkluatype(disabled, TYPE_BOOL)
-
-	local ent = getent(self)
-	checkpermission(instance, ent, "entities.enableMotion")
-
-	if disabled then
-		ent.PhysgunDisabled = true
-	else
-		ent.PhysgunDisabled = nil
-	end
-end
-
-
 --- Sets the physics of an entity to be a sphere
 -- @param boolean enabled Should the entity be spherical?
 -- @param number? radius Optional custom radius to use (max 500). Otherwise the prop's obb is used
